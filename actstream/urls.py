@@ -1,19 +1,11 @@
 import django
-"""
 try:
-    from django.conf.urls import url, patterns
+    from django.urls import url
 except ImportError:
-    from django.conf.urls.defaults import url, patterns
-
-from actstream import feeds, views
-"""
-
-try:
     from django.conf.urls import url
-except ImportError:
-    from django.conf.urls.defaults import url
 
 from actstream import feeds, views
+
 
 urlpatterns = [
     # User feeds
@@ -64,7 +56,5 @@ urlpatterns = [
     url(r'^$', views.stream, name='actstream'),
 ]
 
-"""
 if django.VERSION[:2] < (1, 9):
     urlpatterns = patterns('', *urlpatterns)
-"""
